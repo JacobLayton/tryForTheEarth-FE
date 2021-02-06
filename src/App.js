@@ -35,21 +35,6 @@ function App(props) {
 						<li>
 							<Link to="/login">Admin Login</Link>
 						</li>
-						<li>
-							<Link to="/minimalism">Minimalism Page</Link>
-						</li>
-						<li>
-							<Link to="/forthehome">For The Home Page</Link>
-						</li>
-						<li>
-							<Link to="/lifestyle">Lifestyle Page</Link>
-						</li>
-						<li>
-							<Link to="/about">About Page</Link>
-						</li>
-						<li>
-							<Link to="/contact">Contact Page</Link>
-						</li>
 					</ul>
 					<Route exact path="/" component={Home} />
 					<Route path="/login" component={Login} />
