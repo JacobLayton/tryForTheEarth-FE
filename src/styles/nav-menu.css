@@ -1,0 +1,29 @@
+.navmenuContainer {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.6s cubic-bezier(0.52, 0, 0, 1);
+  overflow: scroll;
+  z-index: 1000;
+}
+
+.navmenuContainer.hiding {
+  transform: translate3d(-100vw, 0, 0);
+}
+
+.navmenuContainer.showing {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
+}
+
+.closeButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+}

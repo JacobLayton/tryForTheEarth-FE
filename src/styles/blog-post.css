@@ -1,0 +1,8 @@
+.blog-post-container {
+  border: 1px solid red;
+}
+
+.blog-post-container img {
+  width: 100%;
+  height: auto;
+}

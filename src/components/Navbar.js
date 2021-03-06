@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import HamburgerButton from './HamburgerButton';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+
   return (
     <div className='navbarContainer'>
-        <HamburgerButton />
+        <HamburgerButton handleClick={props.toggleMenu}/>
         <Link to="/">Home</Link>
     </div>
   );

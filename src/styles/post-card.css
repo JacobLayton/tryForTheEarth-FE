@@ -1,0 +1,8 @@
+.card-wrapper {
+  border: 1px solid red;
+}
+
+.card-wrapper img {
+  width: 90%;
+  height: auto;
+}

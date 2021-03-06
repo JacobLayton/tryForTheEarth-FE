@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import PostCard from "../components/PostCard"
 
 function ForTheHome(props) {
-  return <div>For The Home Page</div>;
+    const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+        let mounting = true;
+		axios.get('http://localhost:9001/posts/category/forthehome')
+			.then(res =>  {
+				console.log('API CALLED', res);
+                if(mounting) {
+                    setPosts(res.data);
+                }
+			})
+			.catch(err => {
+				console.log('Error in get request', err);
+			})
+        return () => mounting = false;
+	  }, []);
+    console.log('POSTS: ', posts);
+  return (
+    <div>
+        <h1>For The Home</h1>
+        {posts.map(post => {
+            return ( 
+                <Link to={`/blogpost/${post.id}`} key={post.id}>
+                    <PostCard post={post} key={post.id}/>
+                </Link>
+            )
+        })}
+    </div>
+    );
 }
 
 export default ForTheHome;
