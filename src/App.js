@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import NavMenu from './components/NavMenu';
 import BlogPost from './pages/BlogPost';
+import AdminPost from './pages/AdminPost';
+import CreatePost from './pages/CreatePost';
 import { AuthContext } from "./context/auth";
 import axios from 'axios';
 
@@ -79,7 +81,8 @@ function App(props) {
 					<Route path="/contact" component={Contact} />
 					<Route path="/blogpost/:id" component={BlogPost} />
 					<PrivateRoute path="/admin" component={Admin} />
-					<PrivateRoute path="/admin/:id" component={BlogPost} />
+					<PrivateRoute path="/adminpost/:id" component={AdminPost} />
+					<PrivateRoute path="/createpost" component={CreatePost} />
 				</div>
 			</Router>
 		</AuthContext.Provider>

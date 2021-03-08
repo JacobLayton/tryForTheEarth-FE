@@ -43,12 +43,8 @@ function BlogPost({ match }) {
             <p>{postData.content}</p>
         </div>
     ) : (
-        <div className='blog-post-container'>
-            <h1>{postData.title}</h1>
-            <h5>{postData.category}</h5>
-            <h5>{postData.created_date}</h5>
-            <img src={postData.image_url} alt=""/>
-            <p>{postData.content}</p>
+        <div>
+            <h1>This page is for administrators only.</h1>
         </div>
     )
   )

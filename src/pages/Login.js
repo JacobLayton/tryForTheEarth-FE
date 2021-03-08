@@ -6,12 +6,12 @@ import LoginButton from '../components/Login-Button'
 function Login() {
   return (
     <Card>
-      <Logo src={logoImg} />
+      {/* <Logo src={logoImg} />
       <Form>
         <Input type="email" placeholder="email" />
         <Input type="password" placeholder="password" />
         <Button>Sign In</Button>
-      </Form>
+      </Form> */}
       <LoginButton />
     </Card>
   );
