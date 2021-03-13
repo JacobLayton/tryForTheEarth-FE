@@ -1,15 +1,41 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import '../styles/blog-post.css';
 import { useAuth0 } from "@auth0/auth0-react";
+import Modal from "react-modal";
+import { ConfirmationModal } from "../components/ConfirmationModal";
+import { useMachine } from "react-robot";
 
-function BlogPost({ match }) {
+async function doSomethingCustom(postId, history) {
+    // pretend to delete something
+    return new Promise((resolve) => {
+      console.log('Beginning delete, postId: ', postId);
+      axios.delete(`http://localhost:9001/posts/${postId}`)
+      .then(res => {
+          console.log('Delete complete: ', res);
+          resolve();
+          history.push('/admin');
+      })
+      .catch(err => {
+          console.log('Error deleting: ', err);
+      })
+    //   setTimeout(() => {
+    //     console.log('Done custom action');
+    //     resolve();
+    //   }, 1000);
+    });
+}
+
+function AdminPost({ match }) {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const {
         params: {id},
     } = match;
+    let history = useHistory();
     // const [isLoading, setIsLoading] = useState(true);
     const [postData, setPostData] = useState([]);
+    const [current, send] = useMachine(ConfirmationModal);
 
     useEffect(() => {
         let mounting = true;
@@ -30,17 +56,41 @@ function BlogPost({ match }) {
         return <div> LOADING.... </div>;
       }
 
-
   return (
     isAuthenticated ? (
         <div className='blog-post-container'>
+            <h1>Current state: {current.name}</h1>
             <button>Edit</button>
-            <button>Delete</button>
+            <button 
+                onClick={() =>
+                    send({
+                      type: 'begin',
+                      onCommit: (context, event) => doSomethingCustom(postData.id, history)
+                    })
+                  }
+            >
+                Delete
+            </button>
             <h1>{postData.title}</h1>
             <h5>{postData.category}</h5>
             <h5>{postData.created_date}</h5>
             <img src={postData.image_url} alt=""/>
             <p>{postData.content}</p>
+            <Modal
+                onRequestClose={() => send('cancel')}
+                isOpen={
+                    current.name === 'confirming' ||
+                    current.name === 'loading'
+                }
+            >
+                Are you sure?!
+                <button onClick={() => send('cancel')}>
+                Cancel
+                </button>
+                <button onClick={() => send('confirm')}>
+                Yes Definitely
+                </button>
+            </Modal>
         </div>
     ) : (
         <div>
@@ -50,4 +100,4 @@ function BlogPost({ match }) {
   )
 }
 
-export default BlogPost;
+export default AdminPost;

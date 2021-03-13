@@ -24,7 +24,7 @@ function BlogPost({ match }) {
 				console.log('Error in get request', err);
 			})
         return () => mounting = false;
-	  }, []);
+	    }, []);
 
       if (isLoading) {
         return <div> LOADING.... </div>;
