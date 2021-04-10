@@ -24,6 +24,7 @@ function Minimalism(props) {
   return (
     <div>
         <h1>Minimalism</h1>
+        <div className='line-break' />
         {posts.map(post => {
             return ( 
                 <Link to={`/blogpost/${post.id}`} key={post.id}>

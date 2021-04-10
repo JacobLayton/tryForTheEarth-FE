@@ -2,7 +2,6 @@ import {
     createMachine,
     state,
     transition,
-    interpret,
     invoke,
     reduce
 } from 'robot3';

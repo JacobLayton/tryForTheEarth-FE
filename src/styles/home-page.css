@@ -1,0 +1,55 @@
+@keyframes animatedBackground {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.intro-container {
+  border-top: 1px solid #06181e;
+  background-image: url("../img/earf.png");
+  min-height: 25vh;
+  background-attachment: fixed;
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: top center;
+  margin: auto;
+  width: 100vw;
+}
+
+.intro-paragraph {
+  width: 100vw;
+  max-width: 100vw;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 60vw;
+}
+
+.intro-paragraph p {
+  /* width: 90%; */
+  padding: 0 10% 0 5%;
+  color: #06181e;
+}
+
+h1 {
+  color: #06181e;
+  text-align: center;
+  font-weight: 100;
+}
+
+.recent-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line-break {
+  width: 90%;
+  border-bottom: 1px solid #06181e;
+  margin-top: 10px;
+}

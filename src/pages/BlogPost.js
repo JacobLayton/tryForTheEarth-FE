@@ -4,7 +4,7 @@ import '../styles/blog-post.css';
 import { useAuth0 } from "@auth0/auth0-react";
 
 function BlogPost({ match }) {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { isAuthenticated, isLoading } = useAuth0();
     const {
         params: {id},
     } = match;
@@ -24,7 +24,7 @@ function BlogPost({ match }) {
 				console.log('Error in get request', err);
 			})
         return () => mounting = false;
-	    }, []);
+	    }, [id]);
 
       if (isLoading) {
         return <div> LOADING.... </div>;

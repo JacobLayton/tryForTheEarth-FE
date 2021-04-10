@@ -1,8 +1,29 @@
 .card-wrapper {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  margin-top: 10px;
 }
 
 .card-wrapper img {
-  width: 90%;
+  width: 100%;
   height: auto;
+}
+
+.card-info > * {
+  color: #06181e;
+  margin: 0.5rem 0;
+}
+
+.card-info h2 {
+  color: #06181e;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.card-line-break {
+  width: 100%;
+  border-bottom: 1px solid #06181e;
+  margin-top: 10px;
 }

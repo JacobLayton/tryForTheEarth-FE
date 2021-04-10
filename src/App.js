@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
 import Home from './pages/Home';
@@ -14,8 +15,11 @@ import NavMenu from './components/NavMenu';
 import BlogPost from './pages/BlogPost';
 import AdminPost from './pages/AdminPost';
 import CreatePost from './pages/CreatePost';
+import EditPost from './pages/EditPost';
 import { AuthContext } from "./context/auth";
-import axios from 'axios';
+// import axios from 'axios';
+import TFTELogo from './img/TFTElogo.png';
+import './App.css';
 
 function App(props) {
 	// Auth
@@ -61,7 +65,7 @@ function App(props) {
 				<div>
 					<Navbar toggleMenu={toggleMenu} />
 					<NavMenu displayMenu={displayMenu} handleMouseUp={handleMouseUp}/>
-					<ul>
+					{/* <ul>
 						<li>
 						<Link to="/">Home Page</Link>
 						</li>
@@ -71,7 +75,7 @@ function App(props) {
 						<li>
 							<Link to="/login">Admin Login</Link>
 						</li>
-					</ul>
+					</ul> */}
 					<Route exact path="/" component={Home} />
 					<Route path="/login" component={Login} />
 					<Route path="/minimalism" component={Minimalism} />
@@ -83,6 +87,7 @@ function App(props) {
 					<PrivateRoute path="/admin" component={Admin} />
 					<PrivateRoute path="/adminpost/:id" component={AdminPost} />
 					<PrivateRoute path="/createpost" component={CreatePost} />
+					<PrivateRoute path="/editpost/:id" component={EditPost} />
 				</div>
 			</Router>
 		</AuthContext.Provider>

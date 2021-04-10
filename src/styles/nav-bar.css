@@ -1,0 +1,14 @@
+.navbarContainer {
+  background-color: #06181e;
+  padding: 10px;
+}
+
+.hamburger-button {
+  width: 10%;
+  color: white;
+  margin-left: 15px;
+}
+
+.hamburger-button:hover {
+  cursor: pointer;
+}

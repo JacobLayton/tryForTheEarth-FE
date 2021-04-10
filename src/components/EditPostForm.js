@@ -4,32 +4,21 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import moment from 'moment';
 import axios from 'axios';
-import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 
-const RTE = ({ field, form, ...props }) => {
-    const change = (content) => {
-        form.setFieldValue(field.name, content.value);
-    }
-
-    return (
-        <RichTextEditorComponent htmlAttributes={{ name: field.name }} change={change.bind(this)}>
-            <Inject services={[Toolbar, Image, Link, HtmlEditor, QuickToolbar]} />
-        </RichTextEditorComponent>
-    );
-  };
-
-const CreatePostForm = () => {
+const EditPostForm = (props) => {
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
+    console.log(props.postData.title);
   return(
         <Formik
+            enableReinitialize={true}
             initialValues={{ 
-                created_date: today,
-                title: '',
-                category: '',
-                image_url: '',
-                blurb: '',
-                content: ''
+                updated_date: today,
+                title: props.postData.title || '',
+                category: props.postData.category || '',
+                image_url: props.postData.image_url || '',
+                blurb: props.postData.blurb || '',
+                content: props.postData.content || ''
             }}
             validationSchema={Yup.object({
                 title: Yup.string()
@@ -43,11 +32,10 @@ const CreatePostForm = () => {
                 content: Yup.string()
                     .required('Required')
             })}
-            // validator={() => ({})}
             onSubmit={(values, { setSubmitting }) => {
-                axios.post('http://localhost:9001/posts', values)
+                axios.put(`http://localhost:9001/posts/${props.postData.id}`, values)
                 .then(res =>  {
-                    console.log('Successfully posted: ', res);
+                    console.log(`Successfully updated post with id ${props.postData.id}`, res);
                     setSubmitting(false);
                     history.push('/admin');
                 })
@@ -77,15 +65,9 @@ const CreatePostForm = () => {
                 <Field name="blurb" type="text" as="textarea" className="blurb"/>
                 <ErrorMessage name="blurb" />
 
-                <Field name="content" type="html" component={RTE} className="main-content"/>
-                <ErrorMessage name="content" />
-
-                {/* <label htmlFor="content">Main Content</label>
-                <Field name="content" component={RTE}/>
-                <ErrorMessage name="blurb" /> */}
-                {/* <label htmlFor="content">Main Content</label>
+                <label htmlFor="content">Main Content</label>
                 <Field name="content" type="text" as="textarea" className="main-content"/>
-                <ErrorMessage name="blurb" /> */}
+                <ErrorMessage name="blurb" />
 
                 <button type="submit">Submit</button>
             </Form>
@@ -93,4 +75,4 @@ const CreatePostForm = () => {
   );
 };
 
-export default CreatePostForm;
+export default EditPostForm;

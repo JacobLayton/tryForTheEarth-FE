@@ -1,5 +1,5 @@
 .navmenuContainer {
-  background-color: lightgray;
+  background-color: #055252;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -7,17 +7,31 @@
   position: fixed;
   top: 0;
   left: 0;
-  transition: transform 0.6s cubic-bezier(0.52, 0, 0, 1);
+  /* transition: transform 0.6s cubic-bezier(0.52, 0, 0, 1); */
   overflow: scroll;
   z-index: 1000;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page-links {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  padding: 5%;
 }
 
 .navmenuContainer.hiding {
+  /* transition: opacity 1s ease-out; */
+  opacity: 0;
   transform: translate3d(-100vw, 0, 0);
+  transition: opacity 0.2s ease-out, transform 0s 0.2s;
 }
 
 .navmenuContainer.showing {
+  /* opacity: 1; */
   transform: translate3d(0vw, 0, 0);
+  transition: transform 0.6s cubic-bezier(0.52, 0, 0, 1);
   overflow: hidden;
 }
 
@@ -26,4 +40,16 @@
   top: 0;
   right: 0;
   color: white;
+  margin: 10px;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.navmenuContainer a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  margin: 0.2rem 0;
 }

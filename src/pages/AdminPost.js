@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import axios from "axios";
 import '../styles/blog-post.css';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -28,7 +28,7 @@ async function doSomethingCustom(postId, history) {
 }
 
 function AdminPost({ match }) {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { isAuthenticated, isLoading } = useAuth0();
     const {
         params: {id},
     } = match;
@@ -50,7 +50,7 @@ function AdminPost({ match }) {
 				console.log('Error in get request', err);
 			})
         return () => mounting = false;
-	  }, []);
+	  }, [id]);
 
       if (isLoading) {
         return <div> LOADING.... </div>;
@@ -60,7 +60,9 @@ function AdminPost({ match }) {
     isAuthenticated ? (
         <div className='blog-post-container'>
             <h1>Current state: {current.name}</h1>
-            <button>Edit</button>
+            <Link to={`/editpost/${postData.id}`}>
+                <button>Edit</button>
+            </ Link>
             <button 
                 onClick={() =>
                     send({
@@ -75,7 +77,7 @@ function AdminPost({ match }) {
             <h5>{postData.category}</h5>
             <h5>{postData.created_date}</h5>
             <img src={postData.image_url} alt=""/>
-            <p>{postData.content}</p>
+            <div dangerouslySetInnerHTML={{ __html: postData.content }} className="postData"/>
             <Modal
                 onRequestClose={() => send('cancel')}
                 isOpen={
