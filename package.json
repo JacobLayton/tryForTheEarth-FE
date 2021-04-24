@@ -5,7 +5,8 @@
   "dependencies": {
     "@auth0/auth0-react": "^1.2.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@syncfusion/ej2-react-richtexteditor": "^19.1.55",
     "@testing-library/jest-dom": "^5.11.9",
@@ -20,6 +21,7 @@
     "react-robot": "^0.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-scroll": "^1.8.3",
     "robot3": "^0.2.19",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
