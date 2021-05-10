@@ -37,11 +37,25 @@
   }
 } */
 
-@import url("https://fonts.googleapis.com/css2?family=Pavanam&display=swap");
+:root {
+  /* --blue: #113e3e; */
+  --blue: #06181e;
+  --lightblue: #055252;
+  --orange: #fcb334;
+  --yellow: #ebf094;
+  --beige: #ecedda;
+  --darkegg: #e0d3cc;
+  --egg1: #f2efeb;
+  --egg2: #f2efea;
+  --offwhite: #fffdf5;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 
 body,
 html {
-  font-family: "Pavanam", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
