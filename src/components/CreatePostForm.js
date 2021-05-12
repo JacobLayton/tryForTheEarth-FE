@@ -5,6 +5,9 @@ import * as Yup from 'yup';
 import moment from 'moment';
 import axios from 'axios';
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
+import '../styles/edit-post-form.css'
+import { findCategoryNumber } from '../helpers/categoryMapping.js';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const RTE = ({ field, form, ...props }) => {
     const change = (content) => {
@@ -16,9 +19,10 @@ const RTE = ({ field, form, ...props }) => {
             <Inject services={[Toolbar, Image, Link, HtmlEditor, QuickToolbar]} />
         </RichTextEditorComponent>
     );
-  };
+};
 
 const CreatePostForm = () => {
+    const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
   return(
@@ -35,7 +39,7 @@ const CreatePostForm = () => {
                 title: Yup.string()
                     .required('Required'),
                 category: Yup.string()
-                    .required('required'),
+                    .required('Required'),
                 image_url: Yup.string()
                     .required('Required'),
                 blurb: Yup.string()
@@ -43,9 +47,15 @@ const CreatePostForm = () => {
                 content: Yup.string()
                     .required('Required')
             })}
-            // validator={() => ({})}
-            onSubmit={(values, { setSubmitting }) => {
-                axios.post('http://localhost:9001/posts', values)
+            onSubmit={ async (values, { setSubmitting }) => {
+                values['category_int'] = findCategoryNumber(values.category);
+                const token = await getAccessTokenSilently();
+                // console.log('Token: ', token);
+                axios.post('http://localhost:9001/posts', values, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                 .then(res =>  {
                     console.log('Successfully posted: ', res);
                     setSubmitting(false);
@@ -56,29 +66,41 @@ const CreatePostForm = () => {
                 })
               }}
         >
-            <Form>
-                <label htmlFor="title">Title</label>
+            <Form className='create-post-form'>
+                <label htmlFor="title">Title:</label>
                 <Field name="title" type="text" />
-                <ErrorMessage name="title" />
+                <ErrorMessage name="title" >
+                { msg => <div className='form-error'>{msg}</div> }
+                </ErrorMessage>
 
-                <label htmlFor="category">Category</label>
+                <label htmlFor="category">Category:</label>
                 <Field as="select" name="category">
                     <option value="">Select a category</option>
                     <option value="minimalism">Minimalism</option>
+                    <option value="product_reviews">Product Reviews</option>
                     <option value="lifestyle">Lifestyle</option>
-                    <option value="forthehome">For The Home</option>
+                    <option value="for_the_home">For The Home</option>
                 </Field>
+                <ErrorMessage name="category" >
+                { msg => <div className='form-error'>{msg}</div> }
+                </ErrorMessage>
 
                 <label htmlFor="image_url">Image URL</label>
                 <Field name="image_url" type="text" />
-                <ErrorMessage name="image_url" />
+                <ErrorMessage name="image_url" >
+                { msg => <div className='form-error'>{msg}</div> }
+                </ErrorMessage>
 
                 <label htmlFor="blurb">Blurb</label>
                 <Field name="blurb" type="text" as="textarea" className="blurb"/>
-                <ErrorMessage name="blurb" />
+                <ErrorMessage name="blurb" >
+                { msg => <div className='form-error'>{msg}</div> }
+                </ErrorMessage>
 
                 <Field name="content" type="html" component={RTE} className="main-content"/>
-                <ErrorMessage name="content" />
+                <ErrorMessage name="content" >
+                { msg => <div className='form-error'>{msg}</div> }
+                </ErrorMessage>
 
                 {/* <label htmlFor="content">Main Content</label>
                 <Field name="content" component={RTE}/>
@@ -86,8 +108,9 @@ const CreatePostForm = () => {
                 {/* <label htmlFor="content">Main Content</label>
                 <Field name="content" type="text" as="textarea" className="main-content"/>
                 <ErrorMessage name="blurb" /> */}
-
-                <button type="submit">Submit</button>
+                <div className='form-button-container'>
+                    <button type="submit">Submit</button>
+                </div>
             </Form>
       </Formik>
   );
