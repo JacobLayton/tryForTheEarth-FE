@@ -4,11 +4,31 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import moment from 'moment';
 import axios from 'axios';
+import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
+import '../styles/edit-post-form.css';
+import { findCategoryNumber } from '../helpers/categoryMapping.js';
+import { useAuth0 } from "@auth0/auth0-react";
+
+const RTE = ({ field, form, ...props }) => {
+    // console.log('Field: ', field);
+    // console.log('form: ', form);
+    // console.log('Props: ', props);
+    const change = (content) => {
+        form.setFieldValue(field.name, content.value);
+    }
+
+    return (
+        <RichTextEditorComponent htmlAttributes={{ name: field.name }} value={field.value} change={change.bind(this)}>
+            <Inject services={[Toolbar, Image, Link, HtmlEditor, QuickToolbar]} />
+        </RichTextEditorComponent>
+    );
+};
 
 const EditPostForm = (props) => {
+    const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
-    console.log(props.postData.title);
+
   return(
         <Formik
             enableReinitialize={true}
@@ -24,7 +44,7 @@ const EditPostForm = (props) => {
                 title: Yup.string()
                     .required('Required'),
                 category: Yup.string()
-                    .required('required'),
+                    .required('Required'),
                 image_url: Yup.string()
                     .required('Required'),
                 blurb: Yup.string()
@@ -32,8 +52,15 @@ const EditPostForm = (props) => {
                 content: Yup.string()
                     .required('Required')
             })}
-            onSubmit={(values, { setSubmitting }) => {
-                axios.put(`http://localhost:9001/posts/${props.postData.id}`, values)
+            onSubmit={ async (values, { setSubmitting }) => {
+                values['category_int'] = findCategoryNumber(values.category);
+                const token = await getAccessTokenSilently();
+                console.log('Token: ', token);
+                axios.put(`http://localhost:9001/posts/${props.postData.id}`, values, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                 .then(res =>  {
                     console.log(`Successfully updated post with id ${props.postData.id}`, res);
                     setSubmitting(false);
@@ -65,11 +92,12 @@ const EditPostForm = (props) => {
                 <Field name="blurb" type="text" as="textarea" className="blurb"/>
                 <ErrorMessage name="blurb" />
 
-                <label htmlFor="content">Main Content</label>
-                <Field name="content" type="text" as="textarea" className="main-content"/>
-                <ErrorMessage name="blurb" />
+                <Field name="content" type="html" component={RTE} className="main-content"/>
+                <ErrorMessage name="content" />
 
-                <button type="submit">Submit</button>
+                <div className='form-button-container'>
+                    <button type="submit">Submit</button>
+                </div>
             </Form>
       </Formik>
   );
