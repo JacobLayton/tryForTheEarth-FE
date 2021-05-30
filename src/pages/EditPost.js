@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import EditPostForm from "../components/EditPostForm";
 import axios from 'axios';
+import '../styles/edit-post-form.css';
 
 function EditPost({ match }) {
     const { isAuthenticated, isLoading } = useAuth0();
@@ -35,12 +36,14 @@ function EditPost({ match }) {
       <div>
           <h1>Edit Post</h1>
           <EditPostForm postData={postData}/>
-          <Link to={`/adminpost/${id}`}>
-            <button>Cancel</button>
-        </ Link>
+          <div className='cancel-post'>
+            <Link to={`/adminpost/${id}`}>
+              <button id='form-cancel-button'>Cancel</button>
+          </ Link>
+          </div>
       </div>
     ) : (
-        <div>
+        <div className='administrators-only-section'>
             <h1>This page is for administrators only.</h1>
         </div>
     )
