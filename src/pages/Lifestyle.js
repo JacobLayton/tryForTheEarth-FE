@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import PostCard from "../components/PostCard"
+import PostCard from "../components/PostCard";
+import '../styles/category-pages.css';
 
 function Lifestyle(props) {
     const [posts, setPosts] = useState([]);
@@ -22,13 +23,17 @@ function Lifestyle(props) {
 	  }, []);
     console.log('POSTS: ', posts);
   return (
-    <div>
-        <h1>Lifestyle</h1>
+    <div className='category-page'>
+        <div className='category-header'>
+            <h1 className='category-title'>Lifestyle</h1>
+            <div className='category-line-break' />
+        </div>
         {posts.map(post => {
             return ( 
-                <Link to={`/blogpost/${post.id}`} key={post.id}>
-                    <PostCard post={post} key={post.id}/>
-                </Link>
+                // <Link to={`/blogpost/${post.id}`} key={post.id}>
+                //     <PostCard post={post} key={post.id}/>
+                // </Link>
+                <PostCard post={post} key={post.id}/>
             )
         })}
     </div>
