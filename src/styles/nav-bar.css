@@ -5,10 +5,21 @@
 
 .hamburger-button {
   width: 10%;
-  color: white;
+  color: #f2efeb;
   margin-left: 15px;
 }
 
 .hamburger-button:hover {
   cursor: pointer;
 }
+
+.navbar-logo {
+  text-align: center;
+  /* transform: rotate(0deg);
+  transition: transform 2s; */
+}
+
+/* .navbar-logo:hover {
+  transform: rotate(20deg);
+  transition: transform 2s;
+} */
