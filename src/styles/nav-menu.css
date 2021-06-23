@@ -1,5 +1,5 @@
 .navmenuContainer {
-  background-color: #055252;
+  background-color: #06181e;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -39,8 +39,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  color: white;
-  margin: 10px;
+  color: #f2efeb;
+  margin: 10px 20px;
 }
 
 .closeButton:hover {
@@ -48,7 +48,7 @@
 }
 
 .navmenuContainer a {
-  color: white;
+  color: #f2efeb;
   text-decoration: none;
   font-size: 2rem;
   margin: 0.2rem 0;
