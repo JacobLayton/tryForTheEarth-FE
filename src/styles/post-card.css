@@ -1,7 +1,6 @@
 .card-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 5%;
   margin-top: 10px;
 }
@@ -19,11 +18,59 @@
 .card-info h2 {
   color: #06181e;
   font-weight: 100;
+}
+
+.card-info a {
   text-decoration: none;
+}
+
+.card-info span {
+  font-weight: bold;
+  font-size: 0.75rem;
 }
 
 .card-line-break {
   width: 100%;
-  border-bottom: 1px solid #06181e;
+  border-bottom: 6px solid var(--darkegg);
   margin-top: 10px;
+}
+
+.card-title {
+  font-family: "Shrikhand", cursive;
+}
+
+.card-title a {
+  color: #06181e;
+}
+
+.card-category a {
+  color: var(--orange);
+}
+
+.card-category a:hover {
+  color: var(--blue);
+}
+
+.read-more {
+  float: left;
+}
+
+.read-more > span {
+  color: #06181e;
+  transition: color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.read-more:hover > span {
+  color: var(--orange);
+}
+
+.read-more #read-more-arrow {
+  position: relative;
+  left: 0;
+  transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.read-more:hover #read-more-arrow {
+  position: relative;
+  left: 3px;
 }
