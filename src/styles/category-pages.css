@@ -1,0 +1,17 @@
+.category-page {
+  background-color: var(--egg1);
+  padding-bottom: 20px;
+}
+
+.category-header {
+  padding: 5%;
+}
+
+.category-title {
+  font-family: "Shrikhand", cursive;
+}
+
+.category-line-break {
+  border-bottom: 6px solid var(--darkegg);
+  margin-top: 10px;
+}
