@@ -1,0 +1,28 @@
+#login-button {
+  border: 1px solid var(--blue);
+  background-color: white;
+  color: var(--blue);
+  width: 150px;
+  height: 50px;
+}
+
+#login-button:hover {
+  background-color: var(--blue);
+  color: white;
+  cursor: pointer;
+}
+
+#logout-button {
+  border: 1px solid var(--orange);
+  background-color: var(--blue);
+  color: var(--orange);
+  width: 150px;
+  height: 50px;
+}
+
+#logout-button:hover {
+  background-color: var(--orange);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  cursor: pointer;
+}
