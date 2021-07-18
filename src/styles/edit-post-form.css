@@ -1,0 +1,72 @@
+.e-richtexteditor {
+  /* width: 50px !important; */
+}
+
+form {
+  border: 1px solid var(--blue);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+  background-color: var(--egg1);
+  min-height: 45vh;
+}
+
+form label {
+  margin: 10px 0;
+  /* color: var(--blue); */
+}
+
+form input {
+}
+form textarea {
+}
+
+form .e-richtexteditor {
+  margin-top: 10px;
+}
+
+form .form-button-container {
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+form button {
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+  color: white;
+  width: 150px;
+  height: 50px;
+}
+
+form button:hover {
+  background-color: white;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.form-error {
+  color: red;
+  font-size: 0.7rem;
+}
+
+/* Components on Form Pages */
+
+#form-cancel-button {
+  border: 1px solid var(--blue);
+  background-color: var(--orange);
+  color: var(--blue);
+  width: 150px;
+  height: 50px;
+  margin: 15px 0;
+}
+#form-cancel-button:hover {
+  background-color: var(--blue);
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  cursor: pointer;
+}
+
+.cancel-post {
+  text-align: center;
+}
