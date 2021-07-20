@@ -1,0 +1,27 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30%;
+  background-color: var(--egg1);
+  padding: 30px 0;
+}
+
+.mini-log-out {
+  font-size: 0.75em;
+  margin-top: 50px;
+}
+
+.mini-log-out:hover {
+  cursor: pointer;
+  color: red;
+}
