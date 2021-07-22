@@ -53,6 +53,7 @@ const EditPostForm = (props) => {
                     .required('Required')
             })}
             onSubmit={ async (values, { setSubmitting }) => {
+                console.log(values);
                 values['category_int'] = findCategoryNumber(values.category);
                 const token = await getAccessTokenSilently();
                 console.log('Token: ', token);
@@ -80,8 +81,9 @@ const EditPostForm = (props) => {
                 <Field as="select" name="category">
                     <option value="">Select a category</option>
                     <option value="minimalism">Minimalism</option>
+                    <option value="product_reviews">Product Reviews</option>
                     <option value="lifestyle">Lifestyle</option>
-                    <option value="forthehome">For The Home</option>
+                    <option value="for_the_home">For The Home</option>
                 </Field>
 
                 <label htmlFor="image_url">Image URL</label>
