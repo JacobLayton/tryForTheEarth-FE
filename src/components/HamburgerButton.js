@@ -5,7 +5,6 @@ import '../styles/nav-bar.css';
 
 const HamburgerButton = (props) => {
     function handleClick(e) {
-        console.log('Button Clicked!');
         props.handleClick();
     }
 
