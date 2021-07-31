@@ -26,26 +26,28 @@ const PostCard = (props) => {
 
     return (
     <div className='card-wrapper'>
-        <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id}>
-            <img src={props.post.image_url} alt=""/>
-        </Link>
-        <div className='card-info'>
-
-                <h2 className='card-title'>
-                <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id}>{props.post.title}</Link>
-                </h2>
-
-            <h5>{createdDate}</h5>
-            <h5 className='card-category'>
-                <Link to={`/category/${props.post.category}`}>{displayCategory}</Link>
-            </h5>
-            <p>{props.post.blurb}</p>
+        <div className='card-wrapper-sans-linebreak'>
             <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id}>
-                <div className='read-more'>
-                    <span>READ MORE</span>
-                    <span id='read-more-arrow'> »</span>
-                </div>
+                <img src={props.post.image_url} alt=""/>
             </Link>
+            <div className='card-info'>
+
+                    <h2 className='card-title'>
+                    <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id}>{props.post.title}</Link>
+                    </h2>
+
+                <h5>{createdDate}</h5>
+                <h5 className='card-category'>
+                    <Link to={`/category/${props.post.category}`}>{displayCategory}</Link>
+                </h5>
+                <p>{props.post.blurb}</p>
+                <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id}>
+                    <div className='read-more'>
+                        <span>READ MORE</span>
+                        <span id='read-more-arrow'> »</span>
+                    </div>
+                </Link>
+            </div>
         </div>
         <div className='card-line-break' />
     </div>
