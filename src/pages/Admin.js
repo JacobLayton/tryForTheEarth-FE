@@ -11,13 +11,13 @@ function Admin(props) {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const history = useHistory();
   console.log('User: ', user);
-  if (user) {
-    console.log('USer: ', user);
-    console.log('user email: ', user.email);
-    console.log('user email verified: ', user.email_verified);
-  } else {
-    history.push('/');
-  }
+  // if (user) {
+  //   console.log('USer: ', user);
+  //   console.log('user email: ', user.email);
+  //   console.log('user email verified: ', user.email_verified);
+  // } else {
+  //   history.push('/');
+  // }
   const [posts, setPosts] = useState([]);
   const location = useLocation();
 
