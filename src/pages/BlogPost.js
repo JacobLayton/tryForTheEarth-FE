@@ -32,6 +32,8 @@ function BlogPost({ match }) {
                     const rawPostData = res.data[0];
                     const createdDate = moment(rawPostData.created_date).format('MMMM Do, YYYY');
                     rawPostData.created_date = createdDate;
+                    const updatedDate = rawPostData.updated_date ? moment(rawPostData.updated_date).format('MMMM Do, YYYY') : createdDate;
+                    rawPostData.updated_date = updatedDate;
                     setPostData(rawPostData);
                     
                 }
@@ -49,11 +51,23 @@ function BlogPost({ match }) {
 
   return (
     <div className='blog-post-container'>
-        <h1>{postData.title}</h1>
-        <img src={postData.image_url} alt=""/>
-        <h5><Link to={`/category/${postData.category}`}>{displayCategory}</Link></h5>
-        <h5>{postData.created_date}</h5>
-        <div dangerouslySetInnerHTML={{ __html: postData.content }} className="post-data"/>
+        <div className='blog-post-container-desktop'>
+            <h1>{postData.title}</h1>
+            <div className='blog-post-info-desktop'>
+                <h5><Link to={`/category/${postData.category}`}>{displayCategory}</Link></h5>
+                <span>|</span>
+                <h5>{postData.created_date}</h5>
+            </div>
+            <div className='blog-post-image-desktop'>
+                <img src={postData.image_url} alt=""/>
+            </div>
+            <div className='blog-post-info-mobile'>
+                <h5><Link to={`/category/${postData.category}`}>{displayCategory}</Link></h5>
+                <h5>{postData.created_date}</h5>
+            </div>
+            <div dangerouslySetInnerHTML={{ __html: postData.content }} className="post-data"/>
+            <span className='last-updated-span'>Last Updated: {postData.updated_date}</span>
+        </div>
     </div>
   )
 }
