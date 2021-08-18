@@ -146,3 +146,56 @@ h1 {
 .admin-buttons button {
   margin-bottom: 10px;
 }
+
+.home-container-desktop {
+  display: none;
+}
+
+.about-container-desktop {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  /* .home-container-mobile {
+    display: none;
+  }
+
+  .home-container-desktop {
+    display: flex;
+    padding: 0 5vw;
+  }
+
+  .right-panel {
+    width: 85%;
+    border-left: 1px solid var(--blue);
+  } */
+  .home-container-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5%;
+  }
+  .about-container {
+    display: none;
+  }
+  .insta-section {
+    display: flex;
+    padding: 5%;
+  }
+  .about-container-desktop {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .insta-content {
+    width: 50%;
+  }
+  .picture-section {
+    padding: 0;
+  }
+}
