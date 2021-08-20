@@ -53,3 +53,9 @@
   font-size: 2rem;
   margin: 0.2rem 0;
 }
+
+@media (min-width: 900px) {
+  .navmenuContainer {
+    display: none;
+  }
+}
