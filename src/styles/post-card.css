@@ -74,3 +74,27 @@
   position: relative;
   left: 3px;
 }
+
+@media (min-width: 900px) {
+  .card-wrapper {
+    width: 30%;
+    padding: 0;
+  }
+  .card-wrapper-sans-linebreak {
+    /* border: 1px solid red; */
+    /* min-height: 65vh; */
+  }
+  .card-info {
+    min-height: 17vh;
+    /* min-height: 34vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-info > * {
+    margin: 0.25rem 0;
+  }
+  .card-info p {
+    display: none;
+  }
+}
