@@ -1,0 +1,26 @@
+.nav-buttons-desktop {
+  display: flex;
+  justify-content: space-between;
+  /* padding-bottom: 50px; */
+}
+
+.nav-buttons-desktop * a {
+  color: var(--egg1);
+  text-decoration: none;
+  font-family: "Shrikhand", cursive;
+  /* font-size: 1.2rem; */
+}
+
+.nav-buttons-desktop * a:hover {
+  color: var(--orange);
+}
+
+.desktop-category-buttons a {
+  margin-left: 50px;
+}
+
+@media (max-width: 899px) {
+  .nav-buttons-desktop {
+    display: none;
+  }
+}
