@@ -27,7 +27,7 @@ const Footer = (props) => {
                 <div className='footer-copyright'>
                     <span className='footer-text'>© 2021 TRY FOR THE EARTH</span>
                     <span className='footer-text'>ALL RIGHTS RESERVED</span>
-                    <span className='footer-text'>DESIGN AND DEVELOPMENT BY JACOB LAYTON</span>
+                    <span className='footer-text'>DESIGN AND DEVELOPMENT BY <a className='footer-text footer-link' href="http://www.jacoblayton.dev" target="_blank">JACOB LAYTON</a></span>
                 </div>
             </div>
         </div>
