@@ -27,8 +27,9 @@ const PostCard = (props) => {
     return (
     <div className='card-wrapper'>
         <div className='card-wrapper-sans-linebreak'>
-            <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id}>
+            <Link to={`/${urlStringLiteral}/${props.post.id}/${urlFriendlyTitle}`} key={props.post.id} className='post-card-image-link'>
                 <img src={props.post.image_url} alt=""/>
+                <p className='hover-blurb'>{props.post.blurb}</p>
             </Link>
             <div className='card-info'>
 
