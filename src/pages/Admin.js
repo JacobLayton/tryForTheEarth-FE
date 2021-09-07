@@ -52,11 +52,13 @@ function Admin(props) {
           </Link>
           <div className='line-break' />
         </div>
-        {posts.map(post => {
-            return ( 
-                    <PostCard post={post} key={post.id} pathname={location.pathname}/>
-            )
-        })}
+        <div className='home-cards'>
+          {posts.map(post => {
+              return ( 
+                      <PostCard post={post} key={post.id} pathname={location.pathname}/>
+              )
+          })}
+        </div>
       </div>
     ) :
     <div className='administrators-only-section'>
