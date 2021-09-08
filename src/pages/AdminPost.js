@@ -70,54 +70,65 @@ function AdminPost({ match }) {
   return (
     isAuthenticated ? (
         <div className='blog-post-container'>
-            <div className='back-to-admin'>
-                <h3><Link to='/admin'>← Back To Admin ←</Link></h3>
-            </div>
-            <div className='admin-post-buttons'>
-                <Link to={`/editpost/${postData.id}`}>
-                    <button className='admin-button'>Edit Post</button>
-                </ Link>
-                <button 
-                    className='delete-button'
-                    onClick={() =>
-                        send({
-                        type: 'begin',
-                        onCommit: async (context, event) => {
-                            if (isAuthenticated) {
-                                const token = await getAccessTokenSilently();
-                                deletePost(postData.id, history, token);
-                            } else {
-                                alert('Please sign in to perform this function');
+            <div className='blog-post-container-desktop'>
+                <div className='back-to-admin'>
+                    <h3><Link to='/admin'>← Back To Admin ←</Link></h3>
+                </div>
+                <div className='admin-post-buttons'>
+                    <Link to={`/editpost/${postData.id}`}>
+                        <button className='admin-button'>Edit Post</button>
+                    </ Link>
+                    <button 
+                        className='delete-button'
+                        onClick={() =>
+                            send({
+                            type: 'begin',
+                            onCommit: async (context, event) => {
+                                if (isAuthenticated) {
+                                    const token = await getAccessTokenSilently();
+                                    deletePost(postData.id, history, token);
+                                } else {
+                                    alert('Please sign in to perform this function');
+                                }
                             }
+                            })
                         }
-                        })
+                    >
+                        Delete
+                    </button>
+                </div>
+                <h1>{postData.title}</h1>
+                <div className='blog-post-info-desktop'>
+                    <h5><Link to={`/category/${postData.category}`}>{displayCategory}</Link></h5>
+                    <span>|</span>
+                    <h5>{postData.created_date}</h5>
+                </div>
+                <div className='blog-post-image-desktop'>
+                    <img src={postData.image_url} alt=""/>
+                </div>
+                <div className='blog-post-info-mobile'>
+                    <h5><Link to={`/category/${postData.category}`}>{displayCategory}</Link></h5>
+                    <h5>{postData.created_date}</h5>
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: postData.content }} className="post-data"/>
+                <Modal
+                    onRequestClose={() => send('cancel')}
+                    isOpen={
+                        current.name === 'confirming' ||
+                        current.name === 'loading'
                     }
+                    className='delete-modal'
+                    overlayClassName='delete-modal-overlay'
                 >
-                    Delete
-                </button>
-            </div>
-            <h1>{postData.title}</h1>
-            <img src={postData.image_url} alt=""/>
-            <h5>{displayCategory}</h5>
-            <h5>{postData.created_date}</h5>
-            <div dangerouslySetInnerHTML={{ __html: postData.content }} className="post-data"/>
-            <Modal
-                onRequestClose={() => send('cancel')}
-                isOpen={
-                    current.name === 'confirming' ||
-                    current.name === 'loading'
-                }
-                className='delete-modal'
-                overlayClassName='delete-modal-overlay'
-            >
-                Are you sure you want to DELETE this post?!
-                <button className='delete-modal-cancel-button' onClick={() => send('cancel')}>
-                Cancel
-                </button>
-                <button className='delete-modal-confirm-button' onClick={() => send('confirm')}>
-                Yes, delete this TRASH!
-                </button>
-            </Modal>
+                    Are you sure you want to DELETE this post?!
+                    <button className='delete-modal-cancel-button' onClick={() => send('cancel')}>
+                    Cancel
+                    </button>
+                    <button className='delete-modal-confirm-button' onClick={() => send('confirm')}>
+                    Yes, delete this TRASH!
+                    </button>
+                </Modal>
+                </div>
         </div>
     ) : (
         <div className='administrators-only-section'>
