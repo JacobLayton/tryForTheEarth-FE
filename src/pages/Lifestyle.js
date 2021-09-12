@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import PostCard from "../components/PostCard";
 import '../styles/category-pages.css';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Lifestyle(props) {
+    gsap.registerPlugin(ScrollTrigger);
     const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
@@ -21,21 +24,42 @@ function Lifestyle(props) {
 			})
         return () => mounting = false;
 	  }, []);
-    console.log('POSTS: ', posts);
+    useEffect(() => {
+        const cards = gsap.utils.toArray('.card-wrapper');
+        cards.forEach(card => {
+            gsap.fromTo(
+            card,
+            {
+                opacity: 0,
+                y: 20
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scrollTrigger: {
+                trigger: card,
+                // markers: true
+                }
+            }
+            )
+        })
+    })
   return (
     <div className='category-page'>
         <div className='category-header'>
             <h1 className='category-title'>Lifestyle</h1>
             <div className='category-line-break' />
         </div>
-        {posts.map(post => {
-            return ( 
-                // <Link to={`/blogpost/${post.id}`} key={post.id}>
-                //     <PostCard post={post} key={post.id}/>
-                // </Link>
-                <PostCard post={post} key={post.id}/>
-            )
-        })}
+        <div className='category-cards'>
+            {posts.map(post => {
+                return ( 
+                    // <Link to={`/blogpost/${post.id}`} key={post.id}>
+                    //     <PostCard post={post} key={post.id}/>
+                    // </Link>
+                    <PostCard post={post} key={post.id}/>
+                )
+            })}
+        </div>
     </div>
     );
 }
