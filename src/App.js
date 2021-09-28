@@ -17,6 +17,7 @@ import BlogPost from './pages/BlogPost';
 import AdminPost from './pages/AdminPost';
 import CreatePost from './pages/CreatePost';
 import EditPost from './pages/EditPost';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import { AuthContext } from "./context/auth";
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -60,6 +61,7 @@ function App(props) {
 					<Route path="/about" component={About} />
 					<Route path="/contact" component={Contact} />
 					<Route path="/blogpost/:id" component={BlogPost} />
+					<Route path="/privacypolicy" component={PrivacyPolicy} />
 					<PrivateRoute path="/admin" component={Admin} />
 					<PrivateRoute path="/adminpost/:id" component={AdminPost} />
 					<PrivateRoute path="/createpost" component={CreatePost} />
