@@ -100,17 +100,25 @@ h1 {
 
 .picture-section {
   padding: 7px 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.picture-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.picture-section img {
+  object-fit: cover;
+  width: 90vw;
+  height: 90vw;
+  /* margin: 2% 0; */
+  padding: 2% 0;
+  /* box-shadow: 0 0 2px var(--blue); */
 }
 
 .box {
-  width: 45%;
-  padding-top: 45%;
+  width: 300px;
+  height: 300px;
+  /* padding-top: 300px; */
   background-color: black;
   margin-bottom: 7px;
 }
@@ -151,10 +159,36 @@ h1 {
   display: none;
 }
 
-.about-container-desktop {
+.about-contact-desktop {
   display: none;
 }
 
+.contact-form-error {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.contact-form-submitted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 59vh;
+}
+.contact-form-sending {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  line-height: 3.1rem;
+  font-size: 1rem;
+}
+.contact-form-thank {
+  color: var(--egg1);
+}
+
+.contact-form-thank-message {
+  color: var(--egg1);
+  font-size: 0.9rem;
+}
 @media (min-width: 900px) {
   /* .home-container-mobile {
     display: none;
@@ -174,6 +208,9 @@ h1 {
     flex-direction: column;
     align-items: center;
   }
+  .line-break {
+    width: 100%;
+  }
   .home-cards {
     display: flex;
     flex-wrap: wrap;
@@ -185,17 +222,116 @@ h1 {
   }
   .insta-section {
     display: flex;
-    padding: 5%;
+    padding: 5% 5% 5% 5%;
+  }
+
+  .insta-content {
+    /* width: 67%; */
+    text-align: center;
+  }
+  .insta-title-container {
+    display: inline-block;
+    margin-bottom: 5%;
+  }
+  .picture-section {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+  .picture-section img {
+    object-fit: cover;
+    width: 20vw;
+    height: 20vw;
+    margin: 1% 0;
+  }
+  .about-contact-desktop {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid var(--orange); */
+    margin: 0 5% 40px;
   }
   .about-container-desktop {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-items: center;
+    width: 40%;
+    margin: 0 5%;
   }
-  .insta-content {
-    width: 50%;
+
+  .about-container-desktop h1 {
+    color: var(--blue);
+    font-family: "Shrikhand", cursive;
   }
-  .picture-section {
-    padding: 0;
+  .about-container-desktop img {
+    width: 70%;
+    margin-top: 7%;
+  }
+  .contact-section {
+    width: 40%;
+    margin: 0;
+    padding: 0 5%;
+    background-color: var(--egg1);
+    text-align: center;
+  }
+  .contact-section .contact-me-container {
+    display: inline-block;
+  }
+  .contact-section h1 {
+    color: var(--blue);
+    font-family: "Shrikhand", cursive;
+  }
+  .contact-section form {
+    margin: 7% 0 0 0;
+    padding: 0 5%;
+    background-color: var(--blue);
+    color: var(--orange);
+    text-align: left;
+  }
+  .contact-section label {
+    font-weight: bold;
+  }
+  .contact-section input {
+    border: 1px solid var(--blue);
+    line-height: 2;
+    background: var(--egg1);
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: var(--blue);
+  }
+  .contact-section input:focus,
+  .contact-section textarea:focus {
+    outline: none !important;
+    border-color: var(--orange);
+    box-shadow: 0 0 8px var(--orange);
+  }
+  .contact-section input:hover,
+  .contact-section textarea:hover {
+    outline: none !important;
+    border-color: var(--orange);
+  }
+  .contact-section textarea {
+    border: 1px solid var(--blue);
+    height: 150px;
+    resize: none;
+    background: var(--egg1);
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: var(--blue);
+  }
+  .contact-section button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-color: var(--orange);
+    color: var(--orange);
+    font-weight: bold;
+  }
+  .contact-section button:hover {
+    /* border-color: var(--blue); */
+    color: var(--blue);
+    background-color: var(--orange);
+    box-shadow: 0 0 10px var(--orange);
   }
 }
