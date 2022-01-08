@@ -9,7 +9,7 @@ function Minimalism(props) {
 
 	useEffect(() => {
         let mounting = true;
-		axios.get('http://localhost:9001/posts/category/minimalism')
+		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/category/minimalism`)
 			.then(res =>  {
 				console.log('API CALLED', res);
                 if(mounting) {

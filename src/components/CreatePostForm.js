@@ -51,7 +51,7 @@ const CreatePostForm = () => {
                 values['category_int'] = findCategoryNumber(values.category);
                 const token = await getAccessTokenSilently();
                 // console.log('Token: ', token);
-                axios.post('http://localhost:9001/posts', values, {
+                axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, values, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

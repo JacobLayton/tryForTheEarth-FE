@@ -25,7 +25,7 @@ function BlogPost({ match }) {
 
     useEffect(() => {
         let mounting = true;
-		axios.get(`http://localhost:9001/posts/${id}`)
+		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`)
 			.then(res =>  {
 				console.log('API CALLED', res);
                 if(mounting) {

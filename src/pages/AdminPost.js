@@ -10,7 +10,7 @@ import moment from 'moment';
 
 function deletePost(postId, history, token) {
     return new Promise((resolve) => {
-      axios.delete(`http://localhost:9001/posts/${postId}`, {
+      axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts/${postId}`, {
           headers: {
               Authorization: `Bearer ${token}`
           }
@@ -48,7 +48,7 @@ function AdminPost({ match }) {
 
     useEffect(() => {
         let mounting = true;
-		axios.get(`http://localhost:9001/posts/${id}`)
+		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`)
 			.then(res =>  {
                 if(mounting) {
                     const rawPostData = res.data[0];

@@ -57,7 +57,7 @@ const EditPostForm = (props) => {
                 values['category_int'] = findCategoryNumber(values.category);
                 const token = await getAccessTokenSilently();
                 console.log('Token: ', token);
-                axios.put(`http://localhost:9001/posts/${props.postData.id}`, values, {
+                axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${props.postData.id}`, values, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

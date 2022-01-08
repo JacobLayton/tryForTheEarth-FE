@@ -23,7 +23,7 @@ function Admin(props) {
 
     useEffect( async () => {
       let mounting = true;
-      axios.get('http://localhost:9001/posts')
+      axios.get(`${process.env.REACT_APP_SERVER_URL}/posts`)
         .then(res =>  {
           console.log('API CALLED', res);
                   if(mounting) {

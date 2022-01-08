@@ -25,7 +25,7 @@ function Home(props) {
 
 	useEffect(() => {
         let mounting = true;
-		axios.get('http://localhost:9001/posts')
+		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts`)
 			.then(res =>  {
         const postsSortedByDate = res.data.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
         const postsMostRecentNine = postsSortedByDate.slice(0, 12);

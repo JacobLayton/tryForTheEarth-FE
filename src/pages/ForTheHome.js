@@ -12,7 +12,7 @@ function ForTheHome(props) {
 
 	useEffect(() => {
         let mounting = true;
-		axios.get('http://localhost:9001/posts/category/for_the_home')
+		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/category/for_the_home`)
 			.then(res =>  {
 				console.log('API CALLED', res);
                 if(mounting) {
