@@ -18,6 +18,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
       domain={domain}
       clientId={clientId}
       redirectUri={window.location.origin}
+      responseType='code'
       onRedirectCallback={onRedirectCallback}
       audience={audience}
     >
