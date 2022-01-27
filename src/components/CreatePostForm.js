@@ -50,7 +50,6 @@ const CreatePostForm = () => {
             onSubmit={ async (values, { setSubmitting }) => {
                 values['category_int'] = findCategoryNumber(values.category);
                 const token = await getAccessTokenSilently();
-                // console.log('Token: ', token);
                 axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, values, {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -102,12 +101,6 @@ const CreatePostForm = () => {
                 { msg => <div className='form-error'>{msg}</div> }
                 </ErrorMessage>
 
-                {/* <label htmlFor="content">Main Content</label>
-                <Field name="content" component={RTE}/>
-                <ErrorMessage name="blurb" /> */}
-                {/* <label htmlFor="content">Main Content</label>
-                <Field name="content" type="text" as="textarea" className="main-content"/>
-                <ErrorMessage name="blurb" /> */}
                 <div className='form-button-container'>
                     <button type="submit">Submit</button>
                 </div>

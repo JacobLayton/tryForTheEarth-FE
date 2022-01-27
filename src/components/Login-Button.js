@@ -6,7 +6,7 @@ const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   return <button id='login-button' onClick={() => loginWithRedirect({
-    redirectUri: window.location.origin
+    redirectUri: `${window.location.origin}/admin`
   })}>Log In</button>;
 };
 
