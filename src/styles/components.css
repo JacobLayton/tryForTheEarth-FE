@@ -26,3 +26,27 @@
   color: var(--blue);
   cursor: pointer;
 }
+
+.admin-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.admin-info-container span {
+  color: red;
+  font-size: 0.75rem;
+}
+
+.admin-info-container button {
+  width: 200px;
+}
+
+.admin-info-container button:hover {
+  cursor: pointer;
+}
