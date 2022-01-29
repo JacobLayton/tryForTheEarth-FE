@@ -103,8 +103,22 @@ h1 {
   text-align: center;
 }
 
+.insta-section {
+  padding: 0 5%;
+}
+
 .insta-section h1 {
   font-family: "Shrikhand", cursive;
+}
+
+.insta-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.insta-title-container .line-break {
+  width: 88vw;
+  margin-bottom: 10px;
 }
 
 .picture-section {
@@ -117,8 +131,10 @@ h1 {
 
 .picture-section img {
   object-fit: cover;
-  width: 90vw;
-  height: 90vw;
+  object-position: 50% 50%;
+  width: 88vw;
+  height: auto;
+  max-height: 88vw;
   /* margin: 2% 0; */
   padding: 2% 0;
   /* box-shadow: 0 0 2px var(--blue); */
@@ -242,6 +258,9 @@ h1 {
     display: inline-block;
     margin-bottom: 5%;
   }
+  .insta-title-container .line-break {
+    width: 100%;
+  }
   .picture-section {
     padding: 0;
     display: flex;
@@ -256,32 +275,56 @@ h1 {
     height: 20vw;
     margin: 1% 0;
   }
+  .about-author-container .line-break {
+    margin-bottom: 20px;
+  }
   .about-contact-desktop {
     display: flex;
-    flex-direction: row;
-    /* border: 1px solid var(--orange); */
-    margin: 0 5% 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 40px;
+    padding: 0 5%;
   }
   .about-container-desktop {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
-    margin: 0 5%;
+    /* width: 75%; */
+    /* margin: 0 5%; */
   }
 
   .about-container-desktop h1 {
     color: var(--blue);
     font-family: "Shrikhand", cursive;
   }
+  .about-desktop-content {
+    display: flex;
+  }
   .about-container-desktop img {
-    width: 70%;
-    margin-top: 7%;
+    /* width: 70%;
+    margin-top: 7%; */
+    margin: 0 7px 7px 0;
+    object-fit: cover;
+    object-position: 50% 50%;
+    height: 75vh;
+    width: 75vh;
+  }
+  .about-desktop-paragraphs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    padding: 5% 0 5% 5%;
+  }
+  .about-desktop-paragraphs p {
+    color: var(--blue);
   }
   .contact-section {
-    width: 40%;
+    width: 60%;
     margin: 0;
-    padding: 0 5%;
+    padding: 5% 5%;
     background-color: var(--egg1);
     text-align: center;
   }
@@ -298,6 +341,9 @@ h1 {
     background-color: var(--blue);
     color: var(--orange);
     text-align: left;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
   }
   .contact-section label {
     font-weight: bold;
