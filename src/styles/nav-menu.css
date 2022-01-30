@@ -54,6 +54,18 @@
   margin: 0.2rem 0;
 }
 
+.active {
+  color: var(--orange);
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-menu-item:hover {
+  color: var(--orange);
+}
+
 @media (min-width: 900px) {
   .navmenuContainer {
     display: none;
