@@ -11,6 +11,7 @@ import Lifestyle from "./pages/Lifestyle";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import NavMenu from './components/NavMenu';
+import ScrollUpArrow from './components/ScrollUpArrow';
 import Footer from './components/Footer';
 import BlogPost from './pages/BlogPost';
 import AdminPost from './pages/AdminPost';
@@ -18,10 +19,9 @@ import CreatePost from './pages/CreatePost';
 import EditPost from './pages/EditPost';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import { AuthContext } from "./context/auth";
+import LoadingSpinner from './components/LoadingSpinner';
 import './App.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-library.add(fab);
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App(props) {
 	// Auth
@@ -53,10 +53,11 @@ function App(props) {
 					<NavMenu displayMenu={displayMenu} handleMouseUp={handleMouseUp}/>
 					<Route exact path="/" component={Home} />
 					<Route path="/login" component={Login} />
-					<Route path="/category/minimalism" component={Minimalism} />
-					<Route path="/category/product_reviews" component={ProductReviews} />
-					<Route path="/category/for_the_home" component={ForTheHome} />
-					<Route path="/category/lifestyle" component={Lifestyle} />
+					<Route path="/loading" component={LoadingSpinner} />
+					<Route path="/minimalism" component={Minimalism} />
+					<Route path="/product_mentions" component={ProductReviews} />
+					<Route path="/homemade" component={ForTheHome} />
+					<Route path="/lifestyle" component={Lifestyle} />
 					<Route path="/contact" component={Contact} />
 					<Route path="/blogpost/:id" component={BlogPost} />
 					<Route path="/privacypolicy" component={PrivacyPolicy} />
@@ -64,6 +65,7 @@ function App(props) {
 					<PrivateRoute path="/adminpost/:id" component={AdminPost} />
 					<PrivateRoute path="/createpost" component={CreatePost} />
 					<PrivateRoute path="/editpost/:id" component={EditPost} />
+					<ScrollUpArrow />
 					<Footer />
 				</div>
 			</Router>
