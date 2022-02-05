@@ -15,6 +15,7 @@ function Lifestyle(props) {
 			.then(res =>  {
                 if(mounting) {
                     setPosts(res.data);
+                    handleScrollPosition();
                 }
 			})
 			.catch(err => {
@@ -42,6 +43,13 @@ function Lifestyle(props) {
             )
         })
     })
+    function handleScrollPosition() {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+          window.scrollTo(0, parseInt(scrollPosition));
+          sessionStorage.removeItem("scrollPosition");
+        }
+    }
   return (
     <div className='category-page'>
         <div className='category-header'>
