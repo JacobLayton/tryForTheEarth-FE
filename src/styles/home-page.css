@@ -29,12 +29,21 @@
   max-width: 100vw;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 20px 0 0;
 }
 
 .intro-paragraph p {
-  padding: 20px 5% 0;
+  /* padding: 20px 5% 0; */
   color: #06181e;
+  padding: 0 5%;
+}
+
+.mission-statement {
+  font-family: "Shrikhand", cursive;
+  font-weight: lighter;
+  color: var(--orange);
 }
 
 h1 {
