@@ -15,6 +15,7 @@ function ForTheHome(props) {
 			.then(res =>  {
                 if(mounting) {
                     setPosts(res.data);
+                    handleScrollPosition();
                 }
 			})
 			.catch(err => {
@@ -42,10 +43,17 @@ function ForTheHome(props) {
             )
         })
     })
+    function handleScrollPosition() {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+          window.scrollTo(0, parseInt(scrollPosition));
+          sessionStorage.removeItem("scrollPosition");
+        }
+    }
   return (
     <div className='category-page'>
         <div className='category-header'>
-            <h1 className='category-title'>For The Home</h1>
+            <h1 className='category-title'>Homemade</h1>
             <div className='category-line-break' />
         </div>
         <div className='category-cards'>
