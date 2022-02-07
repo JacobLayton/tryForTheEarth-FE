@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/post-card.css';
 import moment from 'moment';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { titleToUrlHelper } from '../helpers/helperFunctions.js';
 
 const PostCard = (props) => {

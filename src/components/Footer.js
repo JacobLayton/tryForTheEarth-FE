@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faInstagram } from '@fortawesome/free-solid-svg-icons';
 import '../styles/footer.css';
 
 
@@ -27,7 +25,7 @@ const Footer = (props) => {
                 <div className='footer-copyright'>
                     <span className='footer-text'>© 2021 TRY FOR THE EARTH</span>
                     <span className='footer-text'>ALL RIGHTS RESERVED</span>
-                    <span className='footer-text'>DESIGN AND DEVELOPMENT BY <a className='footer-text footer-link' href="http://www.jacoblayton.dev" target="_blank">JACOB LAYTON</a></span>
+                    <span className='footer-text'>DESIGN AND DEVELOPMENT BY <a className='footer-text footer-link' href="http://www.jacoblayton.dev" target="_blank" rel="noreferrer">JACOB LAYTON</a></span>
                 </div>
             </div>
         </div>

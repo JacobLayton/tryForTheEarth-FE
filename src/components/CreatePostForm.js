@@ -22,7 +22,7 @@ const RTE = ({ field, form, ...props }) => {
 };
 
 const CreatePostForm = () => {
-    const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
   return(

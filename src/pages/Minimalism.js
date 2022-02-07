@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import PostCard from "../components/PostCard";
 import '../styles/category-pages.css';

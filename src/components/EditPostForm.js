@@ -10,9 +10,6 @@ import { findCategoryNumber } from '../helpers/categoryMapping.js';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const RTE = ({ field, form, ...props }) => {
-    // console.log('Field: ', field);
-    // console.log('form: ', form);
-    // console.log('Props: ', props);
     const change = (content) => {
         form.setFieldValue(field.name, content.value);
     }
@@ -25,7 +22,7 @@ const RTE = ({ field, form, ...props }) => {
 };
 
 const EditPostForm = (props) => {
-    const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
 

@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import moment from 'moment';
 
 function BlogPost({ match }) {
-    const { isAuthenticated, isLoading } = useAuth0();
+    const { isLoading } = useAuth0();
     const {
         params: {id},
     } = match;

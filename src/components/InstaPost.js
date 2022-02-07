@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const InstaPost = (props) => {
-    const { id, caption, media_type, media_url, timestamp, thumbnail_url, permalink} = props.feed
+    const { id, caption, media_type, media_url, permalink} = props.feed
     let post;
 
     switch (media_type) {

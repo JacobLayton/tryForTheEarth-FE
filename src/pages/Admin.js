@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import LogoutButton from '../components/Logout-Button';
 import PostCard from "../components/PostCard";
@@ -9,19 +9,10 @@ import '../styles/home-page.css';
 
 function Admin(props) {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const history = useHistory();
-  console.log('User: ', user);
-  // if (user) {
-  //   console.log('USer: ', user);
-  //   console.log('user email: ', user.email);
-  //   console.log('user email verified: ', user.email_verified);
-  // } else {
-  //   history.push('/');
-  // }
   const [posts, setPosts] = useState([]);
   const location = useLocation();
 
-    useEffect( async () => {
+    useEffect(() => {
       let mounting = true;
       axios.get(`${process.env.REACT_APP_SERVER_URL}/posts`)
         .then(res =>  {

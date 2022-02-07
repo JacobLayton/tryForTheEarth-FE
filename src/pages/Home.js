@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../styles/home-page.css';
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,8 +11,6 @@ import ContactForm from "../components/ContactForm.js";
 function Home(props) {
   gsap.registerPlugin(ScrollTrigger);
   const ref = useRef(null);
-  // const selfieRef = useRef();
-  // const q = gsap.utils.selector(selfieRef);
   const [posts, setPosts] = useState([]);
   let maxNumberOfPostsToDisplay = posts.length;
   if (posts.length % 3) {
@@ -28,7 +25,7 @@ function Home(props) {
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts`)
 			.then(res =>  {
         const postsSortedByDate = res.data.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
-        const postsMostRecentNine = postsSortedByDate.slice(0, 12);
+        // const postsMostRecentNine = postsSortedByDate.slice(0, 12);
           if(mounting) {
               setPosts(postsSortedByDate);
           }
@@ -203,7 +200,7 @@ function Home(props) {
               <h1>About the Author</h1>
               <div className='line-break' />
             </div>
-              <img src={TFTEselfie} alt='Picture of the author' className='selfie-desktop'/>
+              <img src={TFTEselfie} alt='Selfie of the author' className='selfie-desktop'/>
               <p>Hi! My name is Taylin. I’m a twenty-something who has slowly become more aware of the effect my individual choices have on the environment around me. I believe in climate change, and I believe that we still have time to correct the course. I am publicly curating a more sustainable personal life, in hopes that I will encourage and influence others to try as well. It doesn’t hurt to try!</p>
               <p>By inspiring people to be more eco-conscious in their personal lives, there is a greater chance that people will start to put pressure on legislation and big corporations (aka the big drivers of the climate crisis) to change!</p>
               <p>My background is in Animal Science and Fisheries and Wildlife Science. So you might say I’m an animal lover. I love reading, cooking, music, and outdoor leisure activities. I work full time in Veterinary Research and am taking on Try for the Earth as a side project. I can’t wait to connect with people who share the same passions as me. Let’s connect!</p>

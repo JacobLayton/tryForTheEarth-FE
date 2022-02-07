@@ -1,14 +1,8 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 import '../styles/nav-buttons-desktop.css';
 
 const NavButtonsDesktop = (props) => {
-    // function handleClick(e) {
-    //     console.log('Button Clicked!');
-    //     props.handleClick();
-    // }
 
   return (
     <div className='nav-buttons-desktop'>

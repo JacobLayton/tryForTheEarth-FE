@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
@@ -8,7 +8,6 @@ import Minimalism from "./pages/Minimalism";
 import ProductReviews from "./pages/ProductReviews";
 import ForTheHome from "./pages/ForTheHome";
 import Lifestyle from "./pages/Lifestyle";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import NavMenu from './components/NavMenu';
@@ -58,7 +57,6 @@ function App(props) {
 					<Route path="/category/product_reviews" component={ProductReviews} />
 					<Route path="/category/for_the_home" component={ForTheHome} />
 					<Route path="/category/lifestyle" component={Lifestyle} />
-					<Route path="/about" component={About} />
 					<Route path="/contact" component={Contact} />
 					<Route path="/blogpost/:id" component={BlogPost} />
 					<Route path="/privacypolicy" component={PrivacyPolicy} />
