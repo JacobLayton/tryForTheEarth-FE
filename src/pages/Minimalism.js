@@ -10,7 +10,6 @@ function Minimalism(props) {
         let mounting = true;
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/category/minimalism`)
 			.then(res =>  {
-				console.log('API CALLED', res);
                 if(mounting) {
                     setPosts(res.data);
                 }
@@ -20,7 +19,6 @@ function Minimalism(props) {
 			})
         return () => mounting = false;
 	  }, []);
-    console.log('POSTS: ', posts);
   return (
     <div className='category-page'>
         <div className='category-header'>

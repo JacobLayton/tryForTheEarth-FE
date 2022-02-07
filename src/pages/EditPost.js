@@ -17,7 +17,6 @@ function EditPost({ match }) {
         let mounting = true;
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`)
 			.then(res =>  {
-				console.log('API CALLED', res);
                 if(mounting) {
                     setPostData(res.data[0]);
                 }

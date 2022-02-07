@@ -16,7 +16,6 @@ function Admin(props) {
       let mounting = true;
       axios.get(`${process.env.REACT_APP_SERVER_URL}/posts`)
         .then(res =>  {
-          console.log('API CALLED', res);
                   if(mounting) {
                       setPosts(res.data);
                   }

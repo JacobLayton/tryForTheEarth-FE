@@ -56,7 +56,7 @@ const CreatePostForm = () => {
                     }
                 })
                 .then(res =>  {
-                    console.log('Successfully posted: ', res);
+                    // console.log('Successfully posted: ', res);
                     setSubmitting(false);
                     history.push('/admin');
                 })

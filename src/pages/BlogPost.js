@@ -27,7 +27,6 @@ function BlogPost({ match }) {
         let mounting = true;
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`)
 			.then(res =>  {
-				console.log('API CALLED', res);
                 if(mounting) {
                     const rawPostData = res.data[0];
                     const createdDate = moment(rawPostData.created_date).format('MMMM Do, YYYY');

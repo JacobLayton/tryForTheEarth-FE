@@ -13,7 +13,6 @@ function Lifestyle(props) {
         let mounting = true;
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/category/lifestyle`)
 			.then(res =>  {
-				console.log('API CALLED', res);
                 if(mounting) {
                     setPosts(res.data);
                 }

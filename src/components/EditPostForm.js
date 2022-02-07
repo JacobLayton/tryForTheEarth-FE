@@ -58,7 +58,7 @@ const EditPostForm = (props) => {
                     }
                 })
                 .then(res =>  {
-                    console.log(`Successfully updated post with id ${props.postData.id}`, res);
+                    // console.log(`Successfully updated post with id ${props.postData.id}`, res);
                     setSubmitting(false);
                     history.push('/admin');
                 })

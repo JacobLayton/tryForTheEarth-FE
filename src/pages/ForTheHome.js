@@ -13,7 +13,6 @@ function ForTheHome(props) {
         let mounting = true;
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/category/for_the_home`)
 			.then(res =>  {
-				console.log('API CALLED', res);
                 if(mounting) {
                     setPosts(res.data);
                 }

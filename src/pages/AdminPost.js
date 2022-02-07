@@ -16,7 +16,7 @@ function deletePost(postId, history, token) {
           }
       })
       .then(res => {
-          console.log('Delete complete: ', res);
+        //   console.log('Delete complete: ', res);
           resolve();
           history.push('/admin');
       })
