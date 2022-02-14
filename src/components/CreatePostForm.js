@@ -75,10 +75,9 @@ const CreatePostForm = () => {
                 <label htmlFor="category">Category:</label>
                 <Field as="select" name="category">
                     <option value="">Select a category</option>
-                    <option value="minimalism">Minimalism</option>
-                    <option value="product_reviews">Product Reviews</option>
                     <option value="lifestyle">Lifestyle</option>
-                    <option value="for_the_home">For The Home</option>
+                    <option value="product_reviews">Product Mentions</option>
+                    <option value="for_the_home">Homemade</option>
                 </Field>
                 <ErrorMessage name="category" >
                 { msg => <div className='form-error'>{msg}</div> }
