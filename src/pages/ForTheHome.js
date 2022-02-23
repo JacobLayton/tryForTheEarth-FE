@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import PostCard from "../components/PostCard";
 import '../styles/category-pages.css';
@@ -14,9 +13,9 @@ function ForTheHome(props) {
         let mounting = true;
 		axios.get(`${process.env.REACT_APP_SERVER_URL}/posts/category/for_the_home`)
 			.then(res =>  {
-				console.log('API CALLED', res);
                 if(mounting) {
                     setPosts(res.data);
+                    handleScrollPosition();
                 }
 			})
 			.catch(err => {
@@ -44,10 +43,17 @@ function ForTheHome(props) {
             )
         })
     })
+    function handleScrollPosition() {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+          window.scrollTo(0, parseInt(scrollPosition));
+          sessionStorage.removeItem("scrollPosition");
+        }
+    }
   return (
     <div className='category-page'>
         <div className='category-header'>
-            <h1 className='category-title'>For The Home</h1>
+            <h1 className='category-title'>Homemade</h1>
             <div className='category-line-break' />
         </div>
         <div className='category-cards'>

@@ -10,9 +10,6 @@ import { findCategoryNumber } from '../helpers/categoryMapping.js';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const RTE = ({ field, form, ...props }) => {
-    // console.log('Field: ', field);
-    // console.log('form: ', form);
-    // console.log('Props: ', props);
     const change = (content) => {
         form.setFieldValue(field.name, content.value);
     }
@@ -25,7 +22,7 @@ const RTE = ({ field, form, ...props }) => {
 };
 
 const EditPostForm = (props) => {
-    const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
 
@@ -61,7 +58,7 @@ const EditPostForm = (props) => {
                     }
                 })
                 .then(res =>  {
-                    console.log(`Successfully updated post with id ${props.postData.id}`, res);
+                    // console.log(`Successfully updated post with id ${props.postData.id}`, res);
                     setSubmitting(false);
                     history.push('/admin');
                 })
@@ -78,10 +75,9 @@ const EditPostForm = (props) => {
                 <label htmlFor="category">Category</label>
                 <Field as="select" name="category">
                     <option value="">Select a category</option>
-                    <option value="minimalism">Minimalism</option>
-                    <option value="product_reviews">Product Reviews</option>
                     <option value="lifestyle">Lifestyle</option>
-                    <option value="for_the_home">For The Home</option>
+                    <option value="product_reviews">Product Mentions</option>
+                    <option value="for_the_home">Homemade</option>
                 </Field>
 
                 <label htmlFor="image_url">Image URL</label>

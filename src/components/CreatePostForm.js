@@ -22,7 +22,7 @@ const RTE = ({ field, form, ...props }) => {
 };
 
 const CreatePostForm = () => {
-    const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
     const today = moment().format('YYYY-MM-DD');
     let history = useHistory();
   return(
@@ -56,7 +56,7 @@ const CreatePostForm = () => {
                     }
                 })
                 .then(res =>  {
-                    console.log('Successfully posted: ', res);
+                    // console.log('Successfully posted: ', res);
                     setSubmitting(false);
                     history.push('/admin');
                 })
@@ -75,10 +75,9 @@ const CreatePostForm = () => {
                 <label htmlFor="category">Category:</label>
                 <Field as="select" name="category">
                     <option value="">Select a category</option>
-                    <option value="minimalism">Minimalism</option>
-                    <option value="product_reviews">Product Reviews</option>
                     <option value="lifestyle">Lifestyle</option>
-                    <option value="for_the_home">For The Home</option>
+                    <option value="product_reviews">Product Mentions</option>
+                    <option value="for_the_home">Homemade</option>
                 </Field>
                 <ErrorMessage name="category" >
                 { msg => <div className='form-error'>{msg}</div> }

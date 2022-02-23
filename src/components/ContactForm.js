@@ -75,12 +75,12 @@ function ContactForm() {
           };
           await axios.post(`https://portfolio-node-backend.herokuapp.com/email`, { messageData })
           .then((res) => {
-            console.log('rES: ', res.data.message);
+            // console.log('rES: ', res.data.message);
             setSubmitted(true);
           })
           .catch((err) => {
             setSubmitClicked(false);
-            console.log('err: ', err);
+            // console.log('err: ', err);
           })
         }}
       >
