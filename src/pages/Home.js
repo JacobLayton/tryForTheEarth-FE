@@ -190,7 +190,7 @@ function Home(props) {
         <div className='intro-container'>
           <div className='intro-paragraph'>
             <p className='mission-statement'>A realistic curation of a more sustainable life through habits, products, and choices.</p>
-            <p>My intention is to encourage others to live more sustainably, for the earth! Here you’ll see my latest thoughts and tips on how to do so. I thoroughly enjoy learning and trying new things, and I’m guessing since you’re here you want to learn too! Let’s do this.</p>
+            <p className='short-intro'>My intention is to encourage others to live more sustainably, for the earth! Here you’ll see my latest thoughts and tips on how to do so. I thoroughly enjoy learning and trying new things, and I’m guessing since you’re here you want to learn too! Let’s do this.</p>
           </div>
         </div>
         <div className='recent-posts'>
@@ -245,7 +245,7 @@ function Home(props) {
                 <img src={TFTEselfie1} alt='Selfie of the author' className='selfie-desktop'/>
               </div>
               <div className='about-desktop-paragraphs'>
-                <p>"Hi! My name is Taylin. I’m a twenty-something who has slowly become more aware of the effect my individual choices have on the environment around me. I believe in climate change, and I believe that we still have time to correct the course. I am publicly curating a more sustainable personal life, in hopes that I will encourage and influence others to try as well. It doesn’t hurt to try!</p>
+                <p>"Hi! My name is Taylin. I’m a twenty-something who has slowly become more aware of the affects my individual choices have on the environment around me. I believe in climate change, and I believe that we still have time to correct the course. I am publicly curating a more sustainable personal life, in hopes that I will encourage and influence others to try as well. It doesn’t hurt to try!</p>
                 <p>By inspiring people to be more eco-conscious in their personal lives, there is a greater chance that people will start to put pressure on legislation and big corporations (aka the big drivers of the climate crisis) to change!</p>
                 <p>My background is in Animal Science and Fisheries and Wildlife Science. So you might say I’m an animal lover. I love reading, cooking, music, and outdoor leisure activities. I work full time in Veterinary Research and am taking on Try for the Earth as a side project. I can’t wait to connect with people who share the same passions as me. Let’s connect!"</p>
               </div>

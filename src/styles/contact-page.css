@@ -66,8 +66,6 @@
 }
 
 @media (min-width: 900px) {
-  .contact-section-mobile {
-  }
   .contact-section-mobile form {
     max-width: 50%;
     margin: auto;
