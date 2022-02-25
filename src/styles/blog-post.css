@@ -84,6 +84,11 @@
   cursor: pointer;
 }
 
+.last-updated-span {
+  font-size: 0.9em;
+  padding-left: 10px;
+}
+
 /* ADMIN MODAL STYLES */
 
 .delete-modal-overlay {
